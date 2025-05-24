@@ -9,13 +9,12 @@ import com.lagradost.cloudstream3.utils.*
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.lagradost.cloudstream3.network.CloudflareKiller
-import com.lagradost.cloudstream3.utils.StringUtils.decodeUri
 import okhttp3.Interceptor
 import okhttp3.Response
 import org.jsoup.Jsoup
 
 class DiziPal : MainAPI() {
-    override var mainUrl              = "https://dizipal1214.com"
+    override var mainUrl              = "https://dizipal1218.com"
     override var name                 = "DiziPal"
     override val hasMainPage          = true
     override var lang                 = "tr"
@@ -143,6 +142,7 @@ class DiziPal : MainAPI() {
                 "X-Requested-With" to "XMLHttpRequest"
             ),
             referer     = "${mainUrl}/",
+            interceptor = interceptor,
             data        = mapOf(
                 "query" to query
             )
